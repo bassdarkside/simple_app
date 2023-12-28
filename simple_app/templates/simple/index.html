@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Currency List</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Currency List</h1>
+    <div>
+        {% if currency_list %}
+        <table style="height: 24px; width: 380px; margin-left: auto; margin-right: auto;">
+            <thead>
+                <tr style="height: 24px;">
+                    {% for colmn_name in colmn_names %}
+                    <th style="width: 40px; height: 24px; text-align:left;">{{ colmn_name }}</th>
+                    {% endfor%}
+                </tr>
+
+            </thead>
+            <tbody>
+                {% for currency in currency_list %}
+                <tr style="height: 24px;">
+                    <td style="width: 40px; height: 24px;">{{ currency.id }}</td>
+                    <td style="width: 60px; height: 24px;">{{ currency.code_a }}</td>
+                    <td style="width: 60px; height: 24px;">{{ currency.code_b }}</td>
+                    <td style="width: 100px; height: 24px;">{{ currency.date }}</td>
+                    <td style="width: 60px; height: 24px;">{{ currency.sell }}</td>
+                    <td style="width: 60px; height: 24px;">{{ currency.buy }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% else %}
+        <p>No currency are available.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
